@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(dht)
+
+option(ENABLE_TEST_COVERAGE "Enable code coverage" OFF)
+option(ENABLE_TESTS "Enable integration and unit tests" OFF)
+option(ENABLE_LUA "Build lua bindings" OFF)
+option(ENABLE_DOC "Build documentation" ON)
+
+if(ENABLE_TEST_COVERAGE)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fprofile-arcs -ftest-coverage -DTEST_COVERAGE")
+endif()
+if(ENABLE_TESTS)
+    add_subdirectory(test)
+endif()
+if(ENABLE_LUA)
+    find_package(Lua REQUIRED)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+    add_subdirectory(lua)
+endif()
+if(ENABLE_DOC)
+    find_package(Doxygen REQUIRED)
+    add_subdirectory(doc)
+endif()
+
+add_subdirectory(lib)

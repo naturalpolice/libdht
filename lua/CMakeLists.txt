@@ -1,0 +1,6 @@
+add_library(ldht MODULE dht.c)
+target_link_libraries(ldht PUBLIC dht ${LUA_LIBRARIES})
+target_include_directories(ldht PUBLIC ${LUA_INCLUDE_DIR})
+target_compile_options(ldht PRIVATE -W -Wall)
+set_target_properties(ldht PROPERTIES PREFIX "")
+set_target_properties(ldht PROPERTIES OUTPUT_NAME "dht")
