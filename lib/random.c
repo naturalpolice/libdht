@@ -40,6 +40,7 @@ int gen_random_bytes(unsigned char *buf, size_t len)
     return 0;
 }
 # else
+# include <unistd.h>
 # include <sys/syscall.h>
 int gen_random_bytes(unsigned char *buf, size_t len)
 {
