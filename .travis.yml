@@ -1,0 +1,25 @@
+language: c
+
+jobs:
+  include:
+    - stage: Build
+      addons:
+        apt:
+          packages:
+            - graphviz
+            - doxygen
+            - liblua5.3-dev
+      script:
+        - (mkdir -p build/ && cd build/ && cmake .. -DENABLE_LUA=ON)
+        - make -C build/ all doc
+    - stage: Test
+      addons:
+        apt:
+          packages:
+            - libcmocka-dev
+      script:
+        - (mkdir -p build/ && cd build/ && cmake .. -DENABLE_TESTS=ON -DENABLE_TEST_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug -DENABLE_DOC=OFF)
+        - make -C build/
+        - ./build/test/storage_unit_tests
+        - ./build/test/hmac_unit_tests
+        - ./build/test/api_tests_v4
