@@ -29,4 +29,3 @@ jobs:
         - make -C build/
         - ./build/test/storage_unit_tests
         - ./build/test/hmac_unit_tests
-        - ./build/test/api_tests_v4
