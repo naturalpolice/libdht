@@ -53,6 +53,11 @@ So far libdht has been successfully built and tested on:
 * Ubuntu Linux (16.04+)
 * Windows 10 (MSVC/Visual Studio Build Tools 2017)
 
+Documentation
+-------------
+
+Doxygen generated documentation for the library's API is available online at [https://naturalpolice.github.io/libdht/](https://naturalpolice.github.io/libdht/).
+
 Running a DHT node
 ------------------
 
