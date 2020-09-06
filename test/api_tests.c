@@ -180,11 +180,11 @@ static void get_complete(const struct bvalue *val, void *opaque)
     priv->done = 1;
 }
 
-static void puti_complete(struct bvalue **val, void *opaque)
+static void puti_complete(int result, void *opaque)
 {
     struct get_priv *priv = opaque;
 
-    (void)val;
+    assert_int_equal(result, 0);
 
     priv->done = 1;
 }
