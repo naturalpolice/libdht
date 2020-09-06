@@ -12,6 +12,13 @@ jobs:
       script:
         - (mkdir -p build/ && cd build/ && cmake .. -DENABLE_LUA=ON)
         - make -C build/ all doc
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        local_dir: build/doc/html
+        github_token: $GH_REPO_TOKEN
+        on:
+          branch: master
     - stage: Test
       addons:
         apt:
