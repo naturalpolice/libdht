@@ -1,0 +1,4 @@
+<map id="dht_node" name="dht_node">
+<area shape="rect" id="node2" href="$structip__counter.html" title="External IP counter. " alt="" coords="25,95,115,121"/>
+<area shape="rect" id="node3" href="$structip__counter__entry.html" title="External IP counter entry. " alt="" coords="5,5,135,32"/>
+</map>
